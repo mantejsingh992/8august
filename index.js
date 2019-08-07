@@ -1,16 +1,8 @@
-const http = require('http');
-const data = {
-    firstName:'Laurence',
-    lastName:'Svekis'
-}
+var express = require('express');
+var app = express()
 
-const site = http.createServer(function(req,res){
-    console.log('Hello World');
-    console.log(req.headers);
-    Console.log(req.url);
-    res.setHeader('Content-Type','application/json');
-    res.write(JSON.stringify(data));
-    res.end();
-});
+app.get('/',function(req,res){
+res.send('HELL WORLD')
+})
 
-site.listen(3000);
+app.listen(3000)
