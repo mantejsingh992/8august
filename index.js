@@ -1,17 +1,24 @@
-var express = require('express');
-var app = express()
-app.get('/',function(req,res){
-    res.send('<h1>HELLo WORLD</h1>')
-    })
+ var express = require('express');
+ var app = express()
+ const bodyparser = require('body-parser');
 
-app.post('/',function(req,res){
-res.send('HELL WORLD')
-})
-app.put('/',function(req,res){
-    res.send('putttt WORLD')
-    })
-    app.delete('/',function(req,res){
-        res.send('putttt WORLD')
-        })
+ app.use(bodyparser.urlencoded({ extended: false }));
+ app.use(bodyparser.json());
 
-app.listen(3000)
+ app.get('/', function(req, res) {
+ res.send('helooo there');
+ })
+ app.post('/', function(req, res) {
+ console.log(req.body);
+ res.send('post send ');
+ });
+ app.put('/', function(req, res) {
+
+ res.send('this is put');
+});
+ app.delete('/', function(req, res) {
+
+res.send('delete');
+ })
+
+ app.listen(3000);
